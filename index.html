@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.D. Dompreh Stock Price Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i>D.D. Dompreh Stock Price Predictor</h1>
+            <p class="subtitle">Enter stock tickers to get AI-powered price predictions and recommendations</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="tickers"><i class="fas fa-tag"></i> Stock Tickers (comma-separated)</label>
+                    <input type="text" id="tickers" placeholder="AAPL, TSLA, NVDA" value="AAPL, TSLA, NVDA">
+                    <div class="hint">Enter up to 5 stock tickers separated by commas</div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="start-date"><i class="fas fa-calendar-alt"></i> Start Date</label>
+                        <input type="date" id="start-date" value="2024-01-01">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="end-date"><i class="fas fa-calendar-alt"></i> End Date</label>
+                        <input type="date" id="end-date" value="2026-01-07">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="time-step"><i class="fas fa-clock"></i> Time Step (days)</label>
+                        <input type="number" id="time-step" min="10" max="200" value="100">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="predict-btn" class="btn-primary">
+                        <i class="fas fa-brain"></i> Generate Predictions
+                    </button>
+                    <button id="clear-btn" class="btn-secondary">
+                        <i class="fas fa-trash-alt"></i> Clear Results
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Training AI model and generating predictions. This may take a moment...</p>
+                </div>
+
+                <div class="recommendations" id="recommendations">
+                    <h2><i class="fas fa-clipboard-list"></i> Recommendations</h2>
+                    <div class="recommendations-grid" id="recommendations-grid">
+                        <!-- Recommendations will be populated here -->
+                    </div>
+                </div>
+
+                <div class="charts-container" id="charts-container">
+                    <h2><i class="fas fa-chart-area"></i> Price Predictions</h2>
+                    <div class="charts-grid" id="charts-grid">
+                        <!-- Charts will be populated here -->
+                    </div>
+                </div>
+
+                <div class="error-alert" id="error-alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-message"></span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p><i class="fas fa-info-circle"></i> Stock predictions are generated using LSTM neural networks. Past performance does not guarantee future results.</p>
+            <p class="copyright">© 2026 D.D. Dompreh Stock Price Predictor |Omanai AI-Powered Financial Analysis</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
